@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Router } from 'react-router-dom';
+
+import Home from './containers/Home';
+import Posts from './containers/Posts';
+import Profiles from './containers/Profiles';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <div>
+        <Route exact path='/' component={Home} />
+        <Route path='/posts' component={Posts} />
+        <Route path='/profiles' component={Profiles} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
