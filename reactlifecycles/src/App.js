@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, BrowserRouter, Route, Link } from 'react-router-dom';
+import {MemoryRouter, HashRouter, BrowserRouter, Route, Link } from 'react-router-dom';
 
 import Home from './containers/Home';
 import Posts from './containers/Posts';
@@ -9,7 +9,7 @@ import Profiles from './containers/Profiles';
 class App extends Component {
   render() {
     return (
-      <HashRouter>
+      <MemoryRouter>
         <div>
           <header>
             <Link to="/">Home</Link>
@@ -21,7 +21,7 @@ class App extends Component {
           <Route path='/posts/:id' component={PostsDetails} />
           <Route path='/profiles' component={Profiles} />
         </div>
-      </HashRouter>
+      </MemoryRouter>
     );
   }
 }
