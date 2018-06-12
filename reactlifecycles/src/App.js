@@ -14,6 +14,7 @@ import Home from './containers/Home';
 import Posts from './containers/Posts';
 import PostsDetails from './containers/PostDetails';
 import Profiles from './containers/Profiles';
+import LifeCycles from './containers/LifeCycles';
 
 class App extends Component {
   render() {
@@ -37,6 +38,11 @@ class App extends Component {
               activeStyle={{color: 'red'}}
               activeClassName="selected"  
             >Profiles</NavLink>
+            <NavLink 
+              to="/life"
+              activeStyle={{color: 'red'}}
+              activeClassName="selected"  
+            >Life</NavLink>
           </header>
           <Switch>
             <Redirect from="/profiles" to="/"/>
@@ -44,6 +50,7 @@ class App extends Component {
             <Route exact path='/posts' component={Posts} />
             <Route path='/posts/:id' component={PostsDetails} />
             <Route path='/profiles' component={Profiles} />
+            <Route path='/life' component={LifeCycles} />
           </Switch>
         </div>
       </BrowserRouter>
