@@ -51,7 +51,7 @@ class App extends Component {
             >Conditional</NavLink>
           </header>
           <Switch>
-            <Redirect from="/profiles" to="/"/>
+            {/* <Redirect from="/profiles" to="/"/> */}
             <Route exact path='/' component={Home} />
             <Route exact path='/posts' component={Posts} />
             <Route path='/posts/:id' component={PostsDetails} />
