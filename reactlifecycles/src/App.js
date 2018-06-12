@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import {MemoryRouter, HashRouter, BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom';
+import {
+  MemoryRouter, 
+  HashRouter, 
+  BrowserRouter, 
+  Route, 
+  Link, 
+  NavLink, 
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 import Home from './containers/Home';
 import Posts from './containers/Posts';
@@ -30,6 +39,7 @@ class App extends Component {
             >Profiles</NavLink>
           </header>
           <Switch>
+            <Redirect from="/profiles" to="/"/>
             <Route exact path='/' component={Home} />
             <Route exact path='/posts' component={Posts} />
             <Route path='/posts/:id' component={PostsDetails} />
