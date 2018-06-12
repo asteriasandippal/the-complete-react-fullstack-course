@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 
-class Lifecycles extends Component {
+class Lifecycles extends PureComponent {
 
     state = {
         title: 'LifeCycles'
@@ -19,14 +19,14 @@ class Lifecycles extends Component {
         console.log('AFTER UPDATE');
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log(nextState.title);
-        console.log(this.state.title);
-        if(nextState.title === 'Change LifeCycles More') {
-            return true
-        }
-        return false;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log(nextState.title);
+    //     console.log(this.state.title);
+    //     if(nextState.title === 'Change LifeCycles More') {
+    //         return true
+    //     }
+    //     return false;
+    // }
 
     componentWillReceiveProps() {
         console.log('BEFORE RECEIVE PROPS');
