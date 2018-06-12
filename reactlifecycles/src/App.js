@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {MemoryRouter, HashRouter, BrowserRouter, Route, Link } from 'react-router-dom';
+import {MemoryRouter, HashRouter, BrowserRouter, Route, Link, NavLink } from 'react-router-dom';
 
 import Home from './containers/Home';
 import Posts from './containers/Posts';
@@ -9,19 +9,32 @@ import Profiles from './containers/Profiles';
 class App extends Component {
   render() {
     return (
-      <MemoryRouter>
+      <BrowserRouter>
         <div>
           <header>
-            <Link to="/">Home</Link>
-            <Link to="/posts">Posts</Link>
-            <Link to="/profiles">Profiles</Link>
+            <NavLink
+              exact 
+              to="/"
+              activeStyle={{color: 'red'}}
+              activeClassName="selected"
+            >Home</NavLink>
+            <NavLink 
+              to="/posts"
+              activeStyle={{color: 'red'}}
+              activeClassName="selected"
+            >Posts</NavLink>
+            <NavLink 
+              to="/profiles"
+              activeStyle={{color: 'red'}}
+              activeClassName="selected"  
+            >Profiles</NavLink>
           </header>
           <Route exact path='/' component={Home} />
           <Route path='/posts' component={Posts} />
           <Route path='/posts/:id' component={PostsDetails} />
           <Route path='/profiles' component={Profiles} />
         </div>
-      </MemoryRouter>
+      </BrowserRouter>
     );
   }
 }
