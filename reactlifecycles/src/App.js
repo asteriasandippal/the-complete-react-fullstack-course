@@ -16,6 +16,7 @@ import PostsDetails from './containers/PostDetails';
 import Profiles from './containers/Profiles';
 import LifeCycles from './containers/LifeCycles';
 import Conditional from './containers/Conditional';
+import User from './containers/User';
 
 class App extends Component {
   render() {
@@ -49,6 +50,11 @@ class App extends Component {
               activeStyle={{color: 'red'}}
               activeClassName="selected"  
             >Conditional</NavLink>
+            <NavLink 
+              to="/user"
+              activeStyle={{color: 'red'}}
+              activeClassName="selected"  
+            >User</NavLink>
           </header>
           <Switch>
             {/* <Redirect from="/profiles" to="/"/> */}
@@ -58,6 +64,7 @@ class App extends Component {
             <Route path='/profiles' component={Profiles} />
             <Route path='/life' component={LifeCycles} />
             <Route path='/conditional' component={Conditional} />
+            <Route path='/user' component={User} />
           </Switch>
         </div>
       </BrowserRouter>
