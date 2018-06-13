@@ -12,7 +12,7 @@ export default class UserTemplate extends React.Component {
 }
 
 UserTemplate.propTypes = {
-    name: PropTypes.string,
+    name: PropTypes.o,
     lastName: PropTypes.string,
     age: PropTypes.number,
     hobbies: PropTypes.array,

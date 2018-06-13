@@ -19,11 +19,21 @@ export default class User extends React.Component {
                 color: 'balck'
             }
         }
+        this.colorChange = this.colorChange.bind(this);
+    }
+    colorChange() {
+        this.refs.myColor.style.color = 'Red';
     }
     render() {
         return (
             <div>
                 <UserTemplate {...this.state} />
+
+                <h2  ref="myColor">Hello, Color</h2>
+
+                <div onClick={this.colorChange}>
+                    ColorChange
+                </div>
             </div>
         );
     }
