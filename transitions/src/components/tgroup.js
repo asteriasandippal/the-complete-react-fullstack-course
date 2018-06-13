@@ -40,10 +40,6 @@ class Slide extends Component{
             </div>
         )
     }
-
-
-
 }
-
 
 export default Slide;
