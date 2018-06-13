@@ -98,6 +98,20 @@
 /*=======================================
                 CSSTRANSITIONS
 ========================================*/
+.square.false {
+  background-color: rgb(209, 86, 86);
+  transform: translateX(-100%);
+}
+.square.true {
+  background-color: rgb(66, 173, 150);
+  transform: translateX(0);
+}
+.square-enter.square-enter-active {
+  background-color: #2196F3;
+}
+.square-exit.square-exit-active {
+  background-color: rgb(196, 63, 136);
+}
 
 /*=======================================
                 TRANSITIONS GROUP 
