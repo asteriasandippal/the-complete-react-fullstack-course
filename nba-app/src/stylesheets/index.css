@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('./containers/layout.css');
-@import url('./components/Header.css');
+@import url('./containers/Header.css');
 @import url('./components/Footer.css');
