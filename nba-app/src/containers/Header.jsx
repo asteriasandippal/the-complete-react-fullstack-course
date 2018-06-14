@@ -11,7 +11,12 @@ function Header(props) {
             <SideNavigation {...props} />
             <div className="header__opt">
                 <HeaderNav onShowNav={props.onShowNav}/>
-                <Logo link="/" src={Nbalogo} title="NBA Aplication" className="header__logo"/>
+                <Logo
+                    link="/"
+                    src={Nbalogo}
+                    title="NBA Aplication"
+                    className="header__logo"
+                />
             </div>
         </header>
     );
