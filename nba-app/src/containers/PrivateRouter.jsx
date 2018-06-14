@@ -2,12 +2,15 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Home from './Home';
+import Layout from './Layout';
 
 function PrivateRouter() {
     return (
-        <Switch>
-            <Route to="/" component={Home}/>
-        </Switch>
+        <Layout>
+            <Switch>
+                <Route to="/" component={Home}/>
+            </Switch>
+        </Layout>
     );
 }
 
