@@ -5,11 +5,13 @@ import axios from 'axios';
 import { API_URL } from '../../constants/appConstants'; 
 
 import Button from '../../components/commons/Button';
+import CardInfo from "../../components/commons/CardInfo";
 
 class NewsLists extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            teams: [],
             items: [],
             start: this.props.start,
             end: this.props.start + this.props.amount,
@@ -25,6 +27,14 @@ class NewsLists extends React.Component {
     }
 
     requestData(start, end) {
+        if(this.state.teams.length < 1) {
+            axios.get(`${API_URL}/teams`)
+                .then(response => {
+                    this.setState(() =>({
+                        teams: response.data
+                    }))
+                });
+        }
         axios.get(`${API_URL}/articles?_start=${start}&_end=${end}`)
         .then(response => {
             this.setState(() => ({
@@ -49,6 +59,11 @@ class NewsLists extends React.Component {
                         <div className="newsList__item" >
                             <div className="newsList__itemBlock">
                                 <Link to={`/articles/${item.id}`}>
+                                    <CardInfo 
+                                        teams={this.state.teams} 
+                                        team={item.team}
+                                        date={item.date}
+                                    />
                                     <h2>{item.title}</h2>
                                 </Link>
                             </div>
