@@ -1,0 +1,15 @@
+.newsList__itemBlock {
+    border: 1px solid #f2f2f2;
+    background-color: #fff;
+    margin-top: 0;
+    padding: 8px 5px 5px;
+}
+.newsList__itemBlock h2 {
+    font-size: 13px;
+    line-height: 21px;
+    margin: 5px 0;
+    color: #525252;
+}
+.newsList__itemBlock a {
+    text-decoration: none;
+}
