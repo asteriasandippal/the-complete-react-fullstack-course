@@ -17,17 +17,15 @@ function SliderTemplate(props) {
     switch(props.type) {
         case('featured'):
             template = props.data.map((item, i) => {
-                const image = `../../assets/images/articles/${item.image}`;
                 return (
                     <div key={i} className="featured">
                         <div className='featured__item'>
                             <div 
                                 className="featured__image"
                                 style={{
-                                    backgroundImage: `url(${image})`
+                                    backgroundImage: `url(assets/images/articles/${item.image})`
                                 }}
                             >
-                                <img src={image} alt=""/>
                             </div>
                             <Link to={`/articles/${item.id}`}>
                                 <div className="featured__caption">
