@@ -1,5 +1,6 @@
 import React from 'react';
 import NewsSlider from './NewsSlider';
+import NewsLists from './NewsLists';
 
 function Home() {
     return (
@@ -16,6 +17,12 @@ function Home() {
                     slidesToShow: 1,
                     slidesToScroll: 1
                 }}
+            />
+            <NewsLists
+                type="card"
+                loadMore={true}
+                start={3}
+                amount={3} 
             />
         </div>
     );
