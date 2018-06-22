@@ -1,8 +1,10 @@
 import React from 'react';
-// import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../constants/appConstants'; 
+
+import Button from '../../components/commons/Button';
 
 class NewsLists extends React.Component {
     constructor(props) {
@@ -36,19 +38,27 @@ class NewsLists extends React.Component {
         switch(type) {
             case('card'):
                 template = this.state.items.map((item, i) => (
-                    <div className="newsList__item" key={i}>
-                        <div className="newsList__itemBlock">
-                            <Link to={`/articles/${item.id}`}>
-                                <h2>{item.title}</h2>
-                            </Link>
+                    <CSSTransition
+                        classNames={{
+                            enter: 'newsList__wrapper',
+                            enterActive: 'newsList__wrapper--enter',
+                       }}
+                       timeout={500}
+                       key={i}
+                    >
+                        <div className="newsList__item" >
+                            <div className="newsList__itemBlock">
+                                <Link to={`/articles/${item.id}`}>
+                                    <h2>{item.title}</h2>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
+                    </CSSTransition>
                 ));
                 break;
             default:
                 template = null;
         }
-
         return template;
     }
 
@@ -60,10 +70,19 @@ class NewsLists extends React.Component {
     render() {
         return (
             <div className="newsList">
-                {this.renderNews(this.props.type)}
-                <div onClick={this.loadMore}>
-                    LOAD MORE
-                </div>
+                <TransitionGroup
+                    component="div"
+                    className="list"
+                >
+                    {this.renderNews(this.props.type)}
+                </TransitionGroup>
+
+                <Button 
+                    type="loadmore"
+                    buttonClick={this.loadMore}
+                    text="Load More News"
+                    className="button--blue button--block"
+                />
             </div>
         );
     }

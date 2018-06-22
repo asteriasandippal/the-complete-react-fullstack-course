@@ -6,6 +6,7 @@
 @import './containers/Header.css';
 @import './components/Footer.css';
 @import './components/SideNavItems.css';
+@import './components/commons/Button.css';
 
 @import './containers/Home/SliderTemplate.css';
 @import './containers/Home/NewsLists.css';

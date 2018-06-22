@@ -13,3 +13,13 @@
 .newsList__itemBlock a {
     text-decoration: none;
 }
+.newsList__wrapper {
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateX(-10%);
+    transition: all .5s ease;
+}
+.newsList__wrapper--enter {
+    opacity: 1;
+    transform: translateX(0);
+}
