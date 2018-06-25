@@ -16,6 +16,8 @@
 .button--block {
     display: block;
     padding: 9px;
+}
+button.button--block {
     width: 100%;
 }
 .button:focus {

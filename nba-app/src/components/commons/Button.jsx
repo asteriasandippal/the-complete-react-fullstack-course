@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Button(props) {
     let template = null;
@@ -13,6 +14,17 @@ function Button(props) {
             {props.text}
         </button>;
             break;
+        
+        case 'linkTo':
+            template = <Link
+            type={props.type}
+            to={props.buttonClick}
+            className={`button ${props.className || ''}`}
+        >
+            {props.text}
+        </Link>;
+            break;
+
         default:
             template = null;
     }
