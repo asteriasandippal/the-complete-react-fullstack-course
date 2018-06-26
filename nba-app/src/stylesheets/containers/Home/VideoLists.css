@@ -1,9 +1,11 @@
 .VideoLists {
-
+    border-bottom: 2px solid #d5d5d5;
+    background-color: #fff;
 }
 .VideoLists h3 {
     text-align: center;
-    margin: 20px;
+    padding: 20px;
+    margin: 0;
     color: #353535;
     font-weight: 300;
     font-size: 21px;
@@ -12,4 +14,19 @@
 }
 .VideoLists .button {
     
+}
+.VideoLists h2 {
+    font-size: 13px;
+    color: #525252;
+}
+
+.VideoList__wrapper {
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all .5s ease;
+}
+.VideoList__wrapper--enter {
+    opacity: 1;
+    transform: translateX(0);
 }
