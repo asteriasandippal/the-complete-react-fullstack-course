@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../constants/appConstants';
 
+import ArticleHeader from './ArticleHeader';
+import ArticleBody from './ArticleBody';
+
 class Articles extends React.Component {
     constructor(props) {
         super(props);
@@ -28,8 +31,13 @@ class Articles extends React.Component {
     render() {
         const {article, team} = this.state;
         return (
-            <div className="articleWrapper">
-                t
+            <div className="article-Wrapper">
+                <ArticleHeader
+                    teamData={team[0]}
+                    date={article.date}
+                    author={article.author}
+                />
+                <ArticleBody/>
             </div>
         );
     }
