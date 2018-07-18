@@ -5,12 +5,14 @@ import Home from './Home';
 import Layout from './Layout';
 import Articles from './../containers/Articles';
 import Videos from './../containers/Videos';
+import News from './../containers/News';
 
 function PrivateRouter() {
     return (
         <Layout>
             <Switch>
                 <Route path="/" exact component={Home}/>
+                <Route path="/news" component={News}/>
                 <Route path="/articles/:id" component={Articles}/>
                 <Route path="/videos/:id" component={Videos}/>
             </Switch>

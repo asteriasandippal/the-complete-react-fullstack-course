@@ -23,3 +23,27 @@
     opacity: 1;
     transform: translateX(0);
 }
+
+.news__itemBlock {
+    display: flex;
+    border-bottom: 2px solid #d5d5d5;
+    background-color: #fff;
+}
+.news__left {
+    background-size: cover;
+}
+.news__left div {
+    background-size: 40px;
+    width: 90px;
+    height: 90px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.news__right {
+    flex-grow: 1;
+    padding: 10px;
+}
+.news__itemBlock h2 {
+    font-size: 13px;
+    color: #525252;
+}

@@ -12,8 +12,8 @@
 @import './components/commons/PostData.css';
 @import './components/VideosListTemplate.css';
 
-@import './containers/Home/SliderTemplate.css';
-@import './containers/Home/NewsLists.css';
+@import './containers/News/SliderTemplate.css';
+@import './containers/News/NewsLists.css';
 @import './containers/Home/VideoLists.css';
 
 

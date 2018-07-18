@@ -73,6 +73,42 @@ class NewsLists extends React.Component {
                     </CSSTransition>
                 ));
                 break;
+            case('news'):
+            template = this.state.items.map((item, i) => (
+                <CSSTransition
+                    classNames={{
+                        enter: 'newsList__wrapper',
+                        enterActive: 'newsList__wrapper--enter',
+                }}
+                timeout={500}
+                key={i}
+                >   
+                    <Link to={`/articles/${item.id}`}>
+                        <div className="news__item" >
+                            <div className="news__itemBlock">
+                                <div 
+                                    className="news__left"
+                                    style={{
+                                        backgroundImage: `url('assets/images/articles/${item.image}')`
+                                    }}
+                                >
+                                    <div></div>
+                                </div>
+                                <div className="news__right">
+                                    <CardInfo 
+                                        teams={this.state.teams} 
+                                        team={item.team}
+                                        date={item.date}
+                                    />
+                                    <h2>{item.title}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                </CSSTransition>
+            ));
+            break;
+
             default:
                 template = null;
         }

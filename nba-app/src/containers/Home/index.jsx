@@ -1,8 +1,8 @@
 import React from 'react';
 
-import NewsSlider from './NewsSlider';
-import NewsLists from './NewsLists';
-import VideoLists from "./VideoLists";
+import NewsSlider from '../News/NewsSlider';
+import NewsLists from '../News/NewsLists';
+import VideoLists from "../Videos/VideoLists";
 
 function Home() {
     return (
