@@ -14,9 +14,8 @@
 
 @import './containers/News/SliderTemplate.css';
 @import './containers/News/NewsLists.css';
-@import './containers/Home/VideoLists.css';
-
 
 @import './containers/Articles/Articles.css';
 
 @import './containers/Videos/Videos.css';
+@import './containers/Videos/VideoLists.css';
