@@ -3,7 +3,6 @@ import axios from 'axios';
 import { API_URL } from '../../constants/appConstants';
 
 import ArticleHeader from './ArticleHeader';
-import ArticleBody from './ArticleBody';
 
 class Articles extends React.Component {
     constructor(props) {
@@ -37,7 +36,17 @@ class Articles extends React.Component {
                     date={article.date}
                     author={article.author}
                 />
-                <ArticleBody/>
+                <div className="article-Wrapper__body">
+                    <h1>{article.title}</h1>
+                    <div className="article-Wrapper--image"
+                        style={{
+                            backgroundImage: `url('/assets/images/articles/${article.image}')`
+                        }}
+                    ></div>
+                    <div className="article-Wrapper--text">
+                        {article.body}
+                    </div>
+                </div>
             </div>
         );
     }

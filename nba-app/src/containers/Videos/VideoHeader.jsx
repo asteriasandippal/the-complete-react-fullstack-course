@@ -2,7 +2,7 @@ import React from 'react';
 import TeamInfo from '../../components/commons/TeamInfo';
 import PostData from '../../components/commons/PostData';
 
-class ArticleHeader extends React.Component {
+class VideoHeader extends React.Component {
     constructor(props) {
         super(props);
         this.teamInfo = this.teamInfo.bind(this);
@@ -28,4 +28,4 @@ class ArticleHeader extends React.Component {
     }
 }
 
-export default ArticleHeader;
+export default VideoHeader;
