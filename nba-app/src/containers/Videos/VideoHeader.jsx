@@ -22,7 +22,11 @@ class VideoHeader extends React.Component {
         return (
             <div className="article-Wrapper__header">
                 {this.teamInfo(this.props.teamData)}
-                {this.postData(this.props.date, this.props.author)}
+                {
+                    this.props.date || this.props.author ? 
+                    this.postData(this.props.date, this.props.author) 
+                    : null
+                }
             </div>
         );
     }

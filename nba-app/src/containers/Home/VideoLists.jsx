@@ -3,7 +3,7 @@ import axios from 'axios';
 import { TransitionGroup, CSSTransition} from 'react-transition-group';
 import { API_URL } from '../../constants/appConstants';
 import Button from '../../components/commons/Button';
-import VideosListTemplate from './VideosListTemplate';
+import VideosListTemplate from '../../components/VideosListTemplate';
 
 class VideoLists extends React.Component {
     constructor(props) {
