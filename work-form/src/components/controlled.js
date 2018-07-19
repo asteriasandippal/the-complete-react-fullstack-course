@@ -10,6 +10,7 @@ class Controlled extends Component {
         }
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleLastNameChange = this.handleLastNameChange.bind(this);
+        this.onhandleSubmit = this.onhandleSubmit.bind(this);
     }
 
     handleNameChange(event) {
@@ -22,11 +23,15 @@ class Controlled extends Component {
             lastName: event.target.value
         });
     }
+    onhandleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state);
+    }
 
     render(){
         return(
             <div className="container">
-                <form>
+                <form onSubmit={this.onhandleSubmit}>
                     <div className="form_element">
                         <label>Enter Name</label>
                         <input 
@@ -43,6 +48,9 @@ class Controlled extends Component {
                             onChange = {this.handleLastNameChange}
                         />
                     </div>
+                    <button type="submit">
+                        Sign In
+                    </button>
                 </form>
             </div>
         )
