@@ -5,6 +5,8 @@ class FormFields extends React.Component {
         super(props);
         this.renderFields = this.renderFields.bind(this);
         this.renderTemplate = this.renderTemplate.bind(this);
+        this.showLabel = this.showLabel.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
     }
 
     renderFields() {
@@ -23,17 +25,43 @@ class FormFields extends React.Component {
         ));
     }
 
+    showLabel(show, label) {
+        return show ? 
+            <label>{label}</label>
+        : null;
+    }
+
     renderTemplate(data) {
         let formTemplate = '';
-        let value = data.settings;
-        console.log(value);
-        switch(value.element) {
+        let values = data.settings;
+        console.log(values);
+        switch(values.element) {
             case('input'):
-                formTemplate = 'sas';
+                formTemplate = (
+                    <div>
+                        {this.showLabel(values.label, values.labelText)}
+                        <input 
+                            {...values.config}
+                            value={values.value}
+                            onChange={
+                                event => this.changeHandler(event, data.id)
+                            }
+                        />
+                    </div>
+                );
                 break;
             default:
                 formTemplate = '';
         }
+
+        return formTemplate;
+    }
+
+    changeHandler(event, id) {
+        console.log(event.target.value, id);
+        const newState = this.props.formData;
+        newState[id].value = event.target.value;
+        console.log(newState);
     }
 
     render() {
