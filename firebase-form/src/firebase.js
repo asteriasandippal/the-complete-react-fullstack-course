@@ -10,5 +10,13 @@ const config = {
 };
 
 firebase.initializeApp(config);
-  
-firebase.database().ref().set('its work!');
+
+const firebaseDB = firebase.database();
+
+firebaseDB.ref().set({
+    name: 'Sandip',
+    lastName: 'Pal',
+    age: 30
+});
+
+firebaseDB.ref('age').set(40);
