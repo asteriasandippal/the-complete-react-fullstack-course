@@ -49,6 +49,38 @@ class FormFields extends React.Component {
                     </div>
                 );
                 break;
+            case('textarea'):
+                formTemplate = (
+                    <div>
+                        {this.showLabel(values.label, values.labelText)}
+                        <textarea 
+                            {...values.config}
+                            value={values.value}
+                            onChange={
+                                event => this.changeHandler(event, data.id)
+                            }
+                        />
+                    </div>
+                );
+                break;
+            case('select'):
+                formTemplate = (
+                    <div>
+                        {this.showLabel(values.label, values.labelText)}
+                        <select 
+                            name = {values.config.name}
+                            value={values.value}
+                            onChange={
+                                event => this.changeHandler(event, data.id)
+                            }
+                        >
+                            {values.config.options.map((item, i) => (
+                                <option value={item.val} key={i}>{item.text}</option>
+                            ))}
+                        </select>
+                    </div>
+                );
+                break;
             default:
                 formTemplate = '';
         }

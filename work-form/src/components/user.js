@@ -28,6 +28,42 @@ class User extends Component {
                         text: 'text',
                         placeholder: 'Enter your Last Name'
                     }
+                },
+                massage: {
+                    element: 'textarea',
+                    value: '',
+                    label: true,
+                    labelText: 'Massage',
+                    config: {
+                        name: 'massage_area',
+                        placeholder: 'Enter your Massage',
+                        row: 4,
+                        cols: 36
+                    }
+                },
+                age: {
+                    element: 'select',
+                    value: '',
+                    label: true,
+                    labelText: 'Age',
+                    config: {
+                        name: 'age_select',
+                        placeholder: 'Enter your Age',
+                        options: [
+                            {
+                                val: '1',
+                                text: '10-20'
+                            },
+                            {
+                                val: '2',
+                                text: '20-30'
+                            },
+                            {
+                                val: '3',
+                                text: '+30'
+                            }
+                        ]
+                    }
                 }
             }
         }
