@@ -18,7 +18,8 @@ class User extends Component {
                         placeholder: 'Enter your Name'
                     },
                     validation: {
-                        required: true
+                        required: true,
+                        minLength: 5
                     },
                     valid: false,
                     touched: false,
@@ -35,9 +36,9 @@ class User extends Component {
                         placeholder: 'Enter your Last Name'
                     },
                     validation: {
-                        required: false
+                        required: true
                     },
-                    valid: true,
+                    valid: false,
                     touched: false,
                     validationMessage: ''
                 },
@@ -51,7 +52,11 @@ class User extends Component {
                         placeholder: 'Enter your Massage',
                         row: 4,
                         cols: 36
-                    }
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: true,
                 },
                 age: {
                     element: 'select',
@@ -75,7 +80,11 @@ class User extends Component {
                                 text: '+30'
                             }
                         ]
-                    }
+                    },
+                    validation: {
+                        required: true
+                    },
+                    valid: true,
                 }
             }
         }
@@ -92,10 +101,19 @@ class User extends Component {
     submitForm(event) {
         event.preventDefault();
         let dataToSubmit = {};
+        let formValid = true;
+
         for (const key in this.state.formData) {
            dataToSubmit[key] = this.state.formData[key].value;
         }
-        console.log(dataToSubmit);
+
+        for (const key in this.state.formData) {
+            formValid = this.state.formData[key].valid && formValid;
+        }
+
+        if(formValid) {
+            console.log(dataToSubmit);
+        }
     }
 
     render(){
@@ -104,6 +122,7 @@ class User extends Component {
                 <form onSubmit={this.submitForm}>
                     <FormFields 
                         formData={this.state.formData}
+                        onblur={newState => this.updateForm(newState)}
                         change={newState => this.updateForm(newState)}
                     />
                     <button type="submit">Submit</button>  

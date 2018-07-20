@@ -44,8 +44,11 @@ class FormFields extends React.Component {
                         <input 
                             {...values.config}
                             value={values.value}
+                            onBlur={
+                                event => this.changeHandler(event, data.id, true)
+                            }
                             onChange={
-                                event => this.changeHandler(event, data.id)
+                                event => this.changeHandler(event, data.id, false)
                             }
                         />
                         {this.showValidation(values)}
@@ -92,23 +95,32 @@ class FormFields extends React.Component {
         return formTemplate;
     }
 
-    changeHandler(event, id) {
+    changeHandler(event, id, blur) {
         const newState = this.props.formData;
         newState[id].value = event.target.value;
 
-        let validData = this.validData(newState[id]);
-
-        console.log(validData);
-
-        newState[id].valid = validData[0];
-        newState[id].validationMessage = validData[1];
+        if(blur) {
+           let validData = this.validData(newState[id]);
+            newState[id].valid = validData[0];
+            newState[id].validationMessage = validData[1]; 
+        }
+        newState[id].touched = blur;
 
         this.props.change(newState);
     }
 
     validData(element) {
-        console.log(element);
         let error = [true, ''];
+
+        if(element.validation.minLength) {
+            const valid = element.value.length >= element.validation.minLength;
+            const message = `${ !valid ? 
+                'Must be greater than ' + element.validation.minLength 
+                : '' }`;
+            error = !valid ? [valid, message] : error;
+        }
+
+
         if(element.validation.required) {
             const valid = element.value.trim() !== '';
             const message = `${ !valid ? 'This field is required' : '' }`;
