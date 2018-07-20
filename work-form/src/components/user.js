@@ -36,11 +36,18 @@ class User extends Component {
     }
     
     updateForm(newState) {
-        console.log('Hello');
+        this.setState(() => ({
+            formData: newState
+        }))
     }
 
     submitForm(event) {
         event.preventDefault();
+        let dataToSubmit = {};
+        for (const key in this.state.formData) {
+           dataToSubmit[key] = this.state.formData[key].value;
+        }
+        console.log(dataToSubmit);
     }
 
     render(){

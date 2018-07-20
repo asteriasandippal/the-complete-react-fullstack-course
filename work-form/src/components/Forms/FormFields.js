@@ -34,7 +34,6 @@ class FormFields extends React.Component {
     renderTemplate(data) {
         let formTemplate = '';
         let values = data.settings;
-        console.log(values);
         switch(values.element) {
             case('input'):
                 formTemplate = (
@@ -58,10 +57,9 @@ class FormFields extends React.Component {
     }
 
     changeHandler(event, id) {
-        console.log(event.target.value, id);
         const newState = this.props.formData;
         newState[id].value = event.target.value;
-        console.log(newState);
+        this.props.change(newState);
     }
 
     render() {
