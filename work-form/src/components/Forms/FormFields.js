@@ -7,6 +7,8 @@ class FormFields extends React.Component {
         this.renderTemplate = this.renderTemplate.bind(this);
         this.showLabel = this.showLabel.bind(this);
         this.changeHandler = this.changeHandler.bind(this);
+        this.validData = this.validData.bind(this);
+        this.showValidation = this.showValidation.bind(this);
     }
 
     renderFields() {
@@ -46,6 +48,7 @@ class FormFields extends React.Component {
                                 event => this.changeHandler(event, data.id)
                             }
                         />
+                        {this.showValidation(values)}
                     </div>
                 );
                 break;
@@ -60,6 +63,7 @@ class FormFields extends React.Component {
                                 event => this.changeHandler(event, data.id)
                             }
                         />
+                        {this.showValidation(values)}
                     </div>
                 );
                 break;
@@ -91,7 +95,39 @@ class FormFields extends React.Component {
     changeHandler(event, id) {
         const newState = this.props.formData;
         newState[id].value = event.target.value;
+
+        let validData = this.validData(newState[id]);
+
+        console.log(validData);
+
+        newState[id].valid = validData[0];
+        newState[id].validationMessage = validData[1];
+
         this.props.change(newState);
+    }
+
+    validData(element) {
+        console.log(element);
+        let error = [true, ''];
+        if(element.validation.required) {
+            const valid = element.value.trim() !== '';
+            const message = `${ !valid ? 'This field is required' : '' }`;
+            error = !valid ? [valid, message] : error;
+        }
+
+        return error;
+    }
+
+    showValidation(data) {
+        let errorMessage = null;
+        if(data.validation && !data.valid) {
+            errorMessage = (
+                <div className="label_error">
+                    {data.validationMessage}
+                </div>
+            );
+        }
+        return errorMessage;
     }
 
     render() {
