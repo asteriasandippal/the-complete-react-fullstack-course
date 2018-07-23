@@ -13,6 +13,9 @@ firebase.initializeApp(config);
 
 const firebaseDB = firebase.database();
 
+export {
+    firebaseDB
+}
 // firebaseDB.ref('user').push({
 //     name: 'Akash',
 //     lastName: 'Kumar',
@@ -36,7 +39,7 @@ const firebaseDB = firebase.database();
 //         console.log(users);
 //     });
 
-firebaseDB.ref('user').orderByChild('lastName').equalTo('Kumar').once('value')
-    .then((snapshot) => {
-        console.log(snapshot.val());
-    })
+// firebaseDB.ref('user').orderByChild('lastName').equalTo('Kumar').once('value')
+//     .then((snapshot) => {
+//         console.log(snapshot.val());
+//     })
