@@ -16,7 +16,27 @@ const firebaseDB = firebase.database();
 firebaseDB.ref().set({
     name: 'Sandip',
     lastName: 'Pal',
-    age: 30
+    age: 30,
+    car : {
+        brand: 'Volvo',
+        color: 'Black'
+    }
 });
 
 firebaseDB.ref('age').set(40);
+
+firebaseDB.ref().on('value', (snapshot) => {
+    console.log(snapshot.val());
+});
+
+firebaseDB.ref().on('child_removed', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+});
+
+firebaseDB.ref().on('child_changed', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+});
+
+firebaseDB.ref().on('child_added', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+});
