@@ -13,30 +13,30 @@ firebase.initializeApp(config);
 
 const firebaseDB = firebase.database();
 
-firebaseDB.ref().set({
-    name: 'Sandip',
-    lastName: 'Pal',
-    age: 30,
-    car : {
-        brand: 'Volvo',
-        color: 'Black'
-    }
-});
+// firebaseDB.ref('user').push({
+//     name: 'Akash',
+//     lastName: 'Kumar',
+//     age: 31,
+//     car : {
+//         brand: 'Volvo',
+//         color: 'Black'
+//     }
+// });
 
-firebaseDB.ref('age').set(40);
+// firebaseDB.ref('user').once('value')
+//     .then((snapshot) => {
+//         console.log(snapshot.val());
+//         const users = [];
+//         snapshot.forEach((childSnapshot) => {
+//             users.push({
+//                 id: childSnapshot.key,
+//                 ...childSnapshot.val()
+//             });
+//         });
+//         console.log(users);
+//     });
 
-firebaseDB.ref().on('value', (snapshot) => {
-    console.log(snapshot.val());
-});
-
-firebaseDB.ref().on('child_removed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
-
-firebaseDB.ref().on('child_changed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
-
-firebaseDB.ref().on('child_added', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-});
+firebaseDB.ref('user').orderByChild('lastName').equalTo('Kumar').once('value')
+    .then((snapshot) => {
+        console.log(snapshot.val());
+    })
